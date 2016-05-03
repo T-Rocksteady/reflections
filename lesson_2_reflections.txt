@@ -1,0 +1,7 @@
+What happens when you initialize a repository? Why do you need to do it?
+
+When we initialize a repository using git init, a special folder .git (with a hidden atribute) is being created inside this folder. Git will use this folder to keep some auxiliary data that users almost never need to interact with (hence hidden). Repository will be a place where all the versions of our tracked files will be kept. All the files within this repository can be added to Git's tracker, and we need it to keep the history of those files. As I understood, after a file becomes trackable, Git will automatically save the versions of this file (after our commits) in its special folder and we will be able to see it using commands like git log.
+
+How is the staging area different from the working directory and the repository? What value do you think it offers?
+
+I consider the staging area as some intermediate layer between the working directory and the repository. When you create some new files and want Git to keep their histories, or change some existing ones, the staging area will have those changes "on hold", until you make an actual commit, so until then these changes are not in the repository.
