@@ -1,0 +1,34 @@
+How did viewing a diff between two versions of a file help you see the bug that was introduced?
+
+Using a tool to see the difference between two files is very helpful and convenient for bugs localizing. Going through all the lines and comparing them requires a lot of time, patience, focus and sharp vision - so it's quite a tedious process. In addition, files in the example that was used for the quiz are quite small, but in the real life (I know, because I'm a software engineer) files with the production code can have up to thousands of lines, so finding the difference between such files, especially if you weren't the person who had introduced a difference, seems impossible for me.
+I've been using systems for version control since the beginning of my professional career and I can say that perhaps it's our tool#2 after IDE :) Every working day starts with the process of latest version downloading.
+
+How could having easy access to the entire history of a file make you a more efficient programmer in the long term?
+
+The first thing that comes to mind is narrowing down the cause of some problem that appeared in your program or product. From my own experience: if I am fixing some new issue and I have found the bug in the code, I would always check the revision history of a particular file or its time-lapse view - to see whose code it is, when and why it was written, what was the submission message, how old this code is - it's important, because sometimes older code that used to work starts producing unexpected or undesired behavior. Also consulting with a person who is an author of this code (if he/she still works at the company) would clarify and speed up the bugfixing process.
+But having an access to the entire history of a file can be very useful if you want to quickly revert to some specific version and, in this case, manually removing/adding something would be almost impossible, error-prone and, for sure, very time-consuming (even if you remember what you've changed after some previous version).
+In addition, personally I sometimes review the history of a project to see how the architecture was evolving and when new features were introduced to the system.
+
+What do you think are the pros and cons of manually choosing when to create a commit, like you do in Git, vs having versions automatically saved, like Google Docs does?
+
++ you have more flexibility, because it's up to you to decide whether your code is ready for commit;
++ there will be no cluttering in files history and no redundant versions that might have no logical changes or wouldn't even compile;
++ automatically saved versions don't have any meaningful commit message, so it might be tricky for third party to understand the changes;
+- it's more prone to human error: if someone forgets to submit often in smaller chunks or doesn't want to do that for whatever reason, there will be some rare and heavy commits which are not only difficult to get into, they can cause all kinds of problems both for the author and for people working on the repository. Tracking own changes in such commits is complicated, because all the intermediate results are lost (they were not submitted).
+
+Why do you think some version control systems, like Git, allow saving multiple files in one commit, while others, like Google Docs, treat each file separately?
+
+
+Most likely it's because Git is code/programming oriented, and in this case it's more frequent that files in repository are interconnected (for example, .h/.cpp files in C++). In Google Docs it's impossible to make any connections among edited documents (I'm not even sure if it's possible to edit multiple documents at a time there).
+
+How can you use the commands git log and git diff to view the history of files?
+
+By using git log you are able to see the history of all commits to your repository, including commit messages and ids. git diff will give you even more details, when given ids of commits: you'll see all the changes made in a newer version (additions, deletions etc.). As I understand, there are tons of additional options to these two commands that can narrow down the history to some specific file.
+
+How might using version control make you more confident to make changes that could break something?
+
+When I work, I almost never fear to break anything, because there is always a previous version of a repository somewhere on a server. Even though it's not very convenient for other people, but it happens quite often that we have to revert to the one of the older versions if the current head doesn't compile, crashes or has something else that prevents programmers from doing their work. But I know a couple of people, who, even having all the versions at hand, still don't remove their code and comment it out "not to lose the idea" or "not to forget about it".
+
+Now that you have your workspace set up, what do you want to try using Git for?
+
+I will download the homework for the first unit of Intro to Machine Learning course. Also I have plans to get familiar with Deep Mind's Atari player, and, ideally, I want to write my own solution for all the exercises from AI books I possess. My repository will be a place where other people can familiarize themselves with my code, skills and interests.
