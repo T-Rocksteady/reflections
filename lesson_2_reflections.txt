@@ -5,3 +5,25 @@ When we initialize a repository using git init, a special folder .git (with a hi
 How is the staging area different from the working directory and the repository? What value do you think it offers?
 
 I consider the staging area as some intermediate layer between the working directory and the repository. When you create some new files and want Git to keep their histories, or change some existing ones, the staging area will have those changes "on hold", until you make an actual commit, so until then these changes are not in the repository.
+
+How can you use the staging area to make sure you have one commit per logical change?
+
+If you have added your changes to the staging area for the "first commit", and then made a couple more modifications, but already regarding another logical change, you still will be able to submit only one, the first change, since it's in the staging area and the rest is only in your working repository. You will be able to compare them by using git diff without arguments.
+
+What are some situations when branches would be helpful in keeping your history organized? How would branches help?
+
+Branches are very helpful when, for example, different teams work on some different features that might modify a repository a lot and these features might affect the same components of the system that the teams are working with. To organize the process in a way that nobody will prevent others from their tasks, every team will have a separate branch for their purposes, and will commit only to their branch. At some point, when the branch is working, well tested and contains everything it's supposed to, with all the experimentation already behind, it can be merged back to the master branch, so the developed feature becomes available for all the other users of the main branch.
+Branches are also helpful when there are some experimental features to try, which are not guaranteed to be in the main version at all or that might have some undesired changes on the way. Branching is a lot easier way to go in this case - instead of checking out back and forth, remembering or finding the commit id before or after some change.
+
+How do the diagrams help you visualize the branch structure?
+
+If using the diagrams, we're able to see at what point the branch was created, and which commits were introduced both on this particular branch and the master branch. It might be useful for checking if something is missing on your branch (maybe you branched before some critical change was commited to the main).
+
+What is the result of merging two branches together? Why do we represent it in the diagram the way we do?
+
+The result of merging two branches together is that all the commits from the both of them are now into checked out branch, sorted by a timestamp. They are accessible now from this branch, so there is no need to keep the label for the branch "merged from". We represent it in the diagram in the way that there was some commit, or snapshot of the repository, when some branch has diverged from the main (or some other branch), it has been evolving independently and had its own commits, but then at some point it was merged back into either "parent" branch or another one, so all the commits made in it were effectively incorporated back, but since this point of merging is usually different than "point of branching", the parent branch might have its own commits as well, so those must be included in the result of the merging as well.
+
+What are the pros and cons of Git’s automatic merging vs. always doing merges manually?
+
+Automatic merging is generally cool, but there are possible situations when it's not that easy to resolve the changes of the same place in a file based only on the times when changes were introduced and the parent revision, and in this case Git can introduce some errors or bugs in the final version. It can be even harder to track because there were no warnings that something was not right during the merging process. But in general, that's very rare case.
+On a contrast, always doing merges manually is quite tedious task that can be even more error-prone comparing to the automatic merging. Sometimes it's a very tricky process because large chunks of code can be affected, and it's nearly impossible to fit those 3 sections (parent revision and the changed ones from the branches being merged) into one screen for comparison, hence scrolling back and forth can lead to some mistakes during the manual resolving.
