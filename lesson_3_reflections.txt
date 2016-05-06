@@ -1,3 +1,27 @@
 When would you want to use a remote repository rather than keeping all your work local?
 
 The first thing that comes to mind is collaboration. When you work on some project in a team, it's critical to have some "centralized" repository that everyone can access and commit to. It'd very error-prone and tedious task to sync without some sort of a common repository, because in this case you would need to exchange files manually every time, decide who changed what and how to handle it, etc. Another example could be the case if you work on your project from different locations, like being on vacation or a trip. You might not have an access to your home machine with your local repository, but you can always pull the remote repository if you have a laptop and you remember your credentials :)
+
+Why might you want to always pull changes manually rather than having Git automatically stay up-to-date with your remote repository?
+
+Because I might want to see the changes that will be pulled first; also I might have some local changes that are not commited/pushed yet, and in this case I will get some conflicts to resolve if pull with be automatic.
+
+Describe the differences between forks, clones, and branches. When would you use one instead of another?
+
+Forks are like special case of cloned repositories: they are being copied directly on GitHub, and their copying gives the repository owners some sort of "credits" (so they can see how interesting and popular their repository is by its forks count).
+Clone means copying a repository either from some remote PC to a local one, or even between two different locations on a local PC.
+Branches are basically labels for commits that are used for some ordering purposes. They work on a scale of a single repository.
+I'd use a branch for an experimental feature (to keep the official version of a system working and maybe demo-ready) or for collaboration of different teams that are working on the same project. I'd clone my repository from a remote PC if I needed to access it not from my working station, or I'd clone my local repository if I decided to start a new project not from a scratch, but based on already implemented one (without touching former). I'd use fork to clone some external repository if I wanted to add some features to it without changing the original or if I wanted to start my own project having another person's work as a starting point.
+
+What is the benefit of having a copy of the last known state of the remote stored locally?
+
+The benefit of this is that you can continue working even without an access to the Internet, and you can use Git commands like diff to see what changes you introduced to your local master and even merge them with a remote one.
+
+How would you collaborate without using Git or GitHub? What would be easier, and what would be harder?
+
+Without Git/GitHub or without any version control system whatsoever collaboration would be very problematic, to say the least. In this case, when someone changes anything, he/she would have to review and compare everything file by file, line by line (which is a tedious, long, error-prone process). And afterwards, the person who is supposed to do a review of the changes, would have to incorporate everything manually (because simply overwriting the files might cause some problems).
+I don't even see what would be easier without version control system. More control for a person who owns a repository since nobody can push to it? Hard to say.
+
+When would you want to make changes in a separate branch rather than directly in master? What benefits does each approach have?
+
+Again, separate branches are critical for collaboration (when different people work on different features on the same project, and it's likely they might have collision during this process). With the different branches it's easier to commit without being afraid to break another person's work accidentally or to leave the main branch in an inconsisted state. Working on the master branch, on the other hand, is good because it saves a lot of time potentially lost on switching between branches, merging them etc.
